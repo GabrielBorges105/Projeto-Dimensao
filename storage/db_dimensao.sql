@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 06-Set-2020 às 19:43
+-- Tempo de geração: 07-Set-2020 às 16:23
 -- Versão do servidor: 10.4.11-MariaDB
 -- versão do PHP: 7.4.4
 
@@ -91,7 +91,7 @@ CREATE TABLE `funcionarios` (
 --
 
 INSERT INTO `funcionarios` (`id`, `equipe_id`, `nome`, `email`, `senha`, `funcao`, `nv_acesso`, `created_at`, `updated_at`) VALUES
-(2, 6, 'Administrador', 'admin@admin.com', '$2y$10$.d/8u33abmg.oOOfm4.L2efMf23Yl.zgw..45jknXpg/l4qvIhnfm', 'Administrador', 2, '0000-00-00 00:00:00', '2020-09-06 14:41:09');
+(2, NULL, 'Administrador', 'admin@admin.com', '$2y$10$.d/8u33abmg.oOOfm4.L2efMf23Yl.zgw..45jknXpg/l4qvIhnfm', 'Administrador', 2, '0000-00-00 00:00:00', '2020-09-06 14:41:09');
 
 --
 -- Índices para tabelas despejadas
