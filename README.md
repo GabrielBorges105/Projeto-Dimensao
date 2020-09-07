@@ -17,6 +17,7 @@ Projeto desenvolvido durante o processo seletivo do Grupo Dimensão, cujo objeti
 
 Tabela de conteúdos
 =================
+   * [Modelagem do Banco de Dados](https://github.com/GabrielBorges105/Projeto-Dimensao/blob/master/Modelagem%20Banco%20de%20Dados.png)
    * [Sobre](#sobre)
    * [Requisitos](#requisitos)
    * [Instalação](#instalacao)
@@ -54,12 +55,12 @@ Antes de começar, você vai precisar ter instalado em sua máquina as seguintes
 
 * Faça Download do Projeto ou clone usando comando
     ```bash
-    git clone <https://github.com/GabrielBorges105/Projeto-Dimensao>
+    git clone <https://github.com/gabrielbigs/projeto_dimensao>
     ```
 * Importe o banco de dados para o Mysql, você poderá encontrar o arquivo .sql no seguinte caminho:
     ```bash
     -- storage
-        |-- db_dimensao.sql 
+        |-- db_dimensao.php
     ```
     
 
@@ -91,6 +92,13 @@ Feito isso?!
     - [x] Abrir Chamado
     - [x] Visualizar seus Chamados
     - [x] Editar e Remover Chamados <strong>antes de serem respondidos</strong>.
+    - [] Visualizar Todos Chamados
+    - [] Minha Equipe e chamados sendo atendidos por ela.
+    - [] Todas Equipes.
+    - [] Cadastrar, Editar e Remover equipes, somente será permitida a remoção de uma equipe caso ela ainda não tenha atendido a nenhum chamado.
+    - [] Lista de Funcionários.
+    - [] Adicionar e Remover Funcionários em equipes.
+    - [] Atribuir permissões a outros Funcionários.
 
 <a id="como-usar-comum"></a>
 ### Funcionário Comum
@@ -98,8 +106,16 @@ Feito isso?!
 - Diferentemente da conta do cliente, o funcionário somente poderá ser registrado no sistema pelo administrador.
 - Depois de receber suas credenciais de acesso feitas pelo administrador, você poderá utilizar a rota "/" para ter acesso ao sistema.
 - Após fazer login no sistema serão apresentadas as seguintes funcionalidades:
+    - [] Abrir Chamado
+    - [] Visualizar seus Chamados
+    - [] Editar e Remover Chamados <strong>antes de serem respondidos</strong>.
     - [x] Visualizar Todos Chamados
     - [x] Minha Equipe e chamados sendo atendidos por ela.
+    - [] Todas Equipes.
+    - [] Cadastrar, Editar e Remover equipes, somente será permitida a remoção de uma equipe caso ela ainda não tenha atendido a nenhum chamado.
+    - [] Lista de Funcionários.
+    - [] Adicionar e Remover Funcionários em equipes.
+    - [] Atribuir permissões a outros Funcionários.
 
 <a id="como-usar-administrador"></a>
 ### Funcionário Administrador
@@ -108,6 +124,9 @@ Feito isso?!
     - Email: admin@admin.com
     - Senha: admin123
 - Após fazer login no sistema serão apresentadas as seguintes funcionalidades:
+    - [] Abrir Chamado
+    - [] Visualizar seus Chamados
+    - [] Editar e Remover Chamados <strong>antes de serem respondidos</strong>.
     - [x] Visualizar Todos Chamados
     - [x] Minha Equipe e chamados sendo atendidos por ela.
     - [x] Todas Equipes.
@@ -125,7 +144,7 @@ Feito isso?!
 
 As seguintes ferramentas foram utilizadas na construção do projeto
 
-- [PHP com CC Framework 1.0](https://github.com/GabrielBorges105/CC-Framework.git)
+- [CC Framework 1.0]()
 - [Boostrap v4.5.2](https://getbootstrap.com/)
 - [Composer v1.10.10](https://getcomposer.org/)
 - [jQuery v3.5.1](https://jquery.com/)
@@ -133,7 +152,7 @@ As seguintes ferramentas foram utilizadas na construção do projeto
 -------------------------------------------------
 
 <a id="autor"></a>
-## Autor
+## ♡ Autor
 
 <a href="http://www.jeangabrieldeveloper.com">
  <img style="border-radius: 50%;" src="http://www.jeangabrieldeveloper.com/img/perfil2.png" width="100px;" alt=""/>
@@ -144,8 +163,7 @@ As seguintes ferramentas foram utilizadas na construção do projeto
 Feito com ❤️ por Jean Gabriel 👋🏽 Entre em contato!
 
 
-[Linkedin](https://www.linkedin.com/in/jean-b-6b9180139/)
-[cantanhede2000@hotmail.com](mailto:cantanhede2000@hotmail.com)
+[![Linkedin Badge](DSA)](https://www.linkedin.com/in/jean-b-6b9180139/)  [![Hotmail Badge](https://img.shields.io/badge/-cantanhede2000@hotmail.com-c14438?style=flat-square&logo=Hotmail&logoColor=white&link=mailto:cantanhede2000@hotmail.com)](mailto:cantanhede2000@hotmail.com)
 
 -------------------------------------------------
 
