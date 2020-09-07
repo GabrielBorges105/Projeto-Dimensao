@@ -163,7 +163,8 @@ As seguintes ferramentas foram utilizadas na construção do projeto
 Feito com ❤️ por Jean Gabriel 👋🏽 Entre em contato!
 
 
-[Linkedin](https://www.linkedin.com/in/jean-b-6b9180139/)  [cantanhede2000@hotmail.com](mailto:cantanhede2000@hotmail.com)
+[Linkedin](https://www.linkedin.com/in/jean-b-6b9180139/)
+[cantanhede2000@hotmail.com](mailto:cantanhede2000@hotmail.com)
 
 -------------------------------------------------
 
