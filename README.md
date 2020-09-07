@@ -60,7 +60,7 @@ Antes de começar, você vai precisar ter instalado em sua máquina as seguintes
 * Importe o banco de dados para o Mysql, você poderá encontrar o arquivo .sql no seguinte caminho:
     ```bash
     -- storage
-        |-- db_dimensao.php
+        |-- db_dimensao.sql
     ```
     
 
