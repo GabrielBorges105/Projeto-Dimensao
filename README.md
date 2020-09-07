@@ -60,7 +60,7 @@ Antes de começar, você vai precisar ter instalado em sua máquina as seguintes
 * Importe o banco de dados para o Mysql, você poderá encontrar o arquivo .sql no seguinte caminho:
     ```bash
     -- storage
-        |-- db_dimensao.sql
+        |-- db_dimensao.sql 
     ```
     
 
@@ -163,7 +163,7 @@ As seguintes ferramentas foram utilizadas na construção do projeto
 Feito com ❤️ por Jean Gabriel 👋🏽 Entre em contato!
 
 
-[![Linkedin Badge](DSA)](https://www.linkedin.com/in/jean-b-6b9180139/)  [![Hotmail Badge](https://img.shields.io/badge/-cantanhede2000@hotmail.com-c14438?style=flat-square&logo=Hotmail&logoColor=white&link=mailto:cantanhede2000@hotmail.com)](mailto:cantanhede2000@hotmail.com)
+[![Linkedin Badge](DSA)](https://www.linkedin.com/in/jean-b-6b9180139/)  [Email](mailto:cantanhede2000@hotmail.com)
 
 -------------------------------------------------
 
