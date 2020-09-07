@@ -92,13 +92,6 @@ Feito isso?!
     - [x] Abrir Chamado
     - [x] Visualizar seus Chamados
     - [x] Editar e Remover Chamados <strong>antes de serem respondidos</strong>.
-    - [] Visualizar Todos Chamados
-    - [] Minha Equipe e chamados sendo atendidos por ela.
-    - [] Todas Equipes.
-    - [] Cadastrar, Editar e Remover equipes, somente será permitida a remoção de uma equipe caso ela ainda não tenha atendido a nenhum chamado.
-    - [] Lista de Funcionários.
-    - [] Adicionar e Remover Funcionários em equipes.
-    - [] Atribuir permissões a outros Funcionários.
 
 <a id="como-usar-comum"></a>
 ### Funcionário Comum
@@ -106,16 +99,8 @@ Feito isso?!
 - Diferentemente da conta do cliente, o funcionário somente poderá ser registrado no sistema pelo administrador.
 - Depois de receber suas credenciais de acesso feitas pelo administrador, você poderá utilizar a rota "/" para ter acesso ao sistema.
 - Após fazer login no sistema serão apresentadas as seguintes funcionalidades:
-    - [] Abrir Chamado
-    - [] Visualizar seus Chamados
-    - [] Editar e Remover Chamados <strong>antes de serem respondidos</strong>.
     - [x] Visualizar Todos Chamados
     - [x] Minha Equipe e chamados sendo atendidos por ela.
-    - [] Todas Equipes.
-    - [] Cadastrar, Editar e Remover equipes, somente será permitida a remoção de uma equipe caso ela ainda não tenha atendido a nenhum chamado.
-    - [] Lista de Funcionários.
-    - [] Adicionar e Remover Funcionários em equipes.
-    - [] Atribuir permissões a outros Funcionários.
 
 <a id="como-usar-administrador"></a>
 ### Funcionário Administrador
@@ -124,9 +109,6 @@ Feito isso?!
     - Email: admin@admin.com
     - Senha: admin123
 - Após fazer login no sistema serão apresentadas as seguintes funcionalidades:
-    - [] Abrir Chamado
-    - [] Visualizar seus Chamados
-    - [] Editar e Remover Chamados <strong>antes de serem respondidos</strong>.
     - [x] Visualizar Todos Chamados
     - [x] Minha Equipe e chamados sendo atendidos por ela.
     - [x] Todas Equipes.
@@ -144,7 +126,7 @@ Feito isso?!
 
 As seguintes ferramentas foram utilizadas na construção do projeto
 
-- [CC Framework 1.0]()
+- [PHP com CC Framework 1.0]()
 - [Boostrap v4.5.2](https://getbootstrap.com/)
 - [Composer v1.10.10](https://getcomposer.org/)
 - [jQuery v3.5.1](https://jquery.com/)
