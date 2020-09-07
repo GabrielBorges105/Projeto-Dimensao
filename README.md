@@ -145,8 +145,7 @@ As seguintes ferramentas foram utilizadas na construção do projeto
 Feito com ❤️ por Jean Gabriel 👋🏽 Entre em contato!
 
 
-[Linkedin](https://www.linkedin.com/in/jean-b-6b9180139/)
-[cantanhede2000@hotmail.com](mailto:cantanhede2000@hotmail.com)
+[![Linkedin Badge](DSA)](https://www.linkedin.com/in/jean-b-6b9180139/)  [![Hotmail Badge](https://img.shields.io/badge/-cantanhede2000@hotmail.com-c14438?style=flat-square&logo=Hotmail&logoColor=white&link=mailto:cantanhede2000@hotmail.com)](mailto:cantanhede2000@hotmail.com)
 
 -------------------------------------------------
 
