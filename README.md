@@ -114,10 +114,13 @@ Feito isso?!
     - [x] Todas Equipes.
     - [x] Cadastrar, Editar e Remover equipes, somente será permitida a remoção de uma equipe caso ela ainda não tenha atendido a nenhum chamado.
     - [x] Lista de Funcionários.
+    - [x] Fazer agendamentos de vistoria e reparo.
     - [x] Adicionar e Remover Funcionários em equipes.
     - [x] Atribuir permissões a outros Funcionários.
 
 
+
+<strong>OBS.:</strong> Os agendamentos de vistoria devem ser feito sempre antes do agendamento de reparo, sendo possivel agendar reparo somente quando o agendamento da vistoria já foi feito. Outro detalhe importante é que depois de agendado o reparo ficará disponível na tela de agendamentos uma nova opção para marcar agendamento como concluído/finalizado.
 
 -------------------------------------------------
 
