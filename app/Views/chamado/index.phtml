@@ -1,0 +1,101 @@
+<div class="row  align-items-center mb-2">
+    <div class="col-8">
+        <h2 class="font-weight-bold">Meus Chamados</h2>
+    </div>
+    <div class="col-4 text-right">
+        <a href="/chamados/create" class="btn btn-theme">Adicionar Chamado</a>
+    </div>
+</div>
+<div class="table-responsive rounded">
+    <table class="table rounded table-striped borded table-theme">
+        <thead>
+            <tr class="text-center">
+                <th>Cód. Chamado</th>
+                <th>Motivo</th>
+                <th>Descrição</th>
+                <th class="text-primary">Data de Abertura</th>
+                <th class="text-warning">Agendado para</th>
+                <th>Situação</th>
+                <th>Fechar Chamado</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            if (count($this->params->meusChamados) > 0) {
+                foreach ($this->params->meusChamados as $chamado) :
+            ?>
+                    <tr class="border-0 text-center" style="border:none!important;">
+                        <td><?= $chamado->id ?></td>
+                        <td class="text-lowercase"><?= $chamado->motivo ?></td>
+                        <td><?= mb_strimwidth($chamado->descricao, 0, 50, "..."); ?></td>
+                        <td class="text-primary"><?= date('d/m/Y', strtotime($chamado->created_at)) ?></td>
+                        <td class="text-warning"><?= (date($chamado->dataAgendamento) == '0000-00-00') ? "" :  date('d/m/Y', strtotime($chamado->dataAgendamento)) ?></td>
+                        <td><?php if ($chamado->status == "Pendente") {
+                                echo $chamado->status . " <i class='fas fa-circle text-secondary'></i>";
+                            }  elseif ($chamado->status == "Aguardando reparo") {
+                                echo $chamado->status . " <i class='fas fa-circle text-primary'></i>";
+                            } elseif ($chamado->status == "Aguardando vistoria") {
+                                echo $chamado->status . " <i class='fas fa-circle text-warning'></i>";
+                            } elseif ($chamado->status == "Concluído") {
+                                echo $chamado->status . " <i class='fas fa-circle text-success'></i>";
+                            }  ?></td>
+                        <td>
+                            <a href="/chamados/<?= $chamado->id ?>/show" class="text-secondary mx-1" data-toggle="tooltip" data-placement="bottom" title="Visualizar"><i class="fas fa-eye"></i></a>
+                            <?php
+                            if ($chamado->status == "Pendente") {
+                            ?>
+                                <a href="/chamados/<?= $chamado->id ?>/edit" class="text-primary mx-1" data-toggle="tooltip" data-placement="bottom" title="Editar"><i class="fas fa-edit"></i></a>
+                                <a href="/chamados/<?= $chamado->id ?>/delete" onclick="return confirm('Você deseja realmente excluir este chamado?')" class="text-danger mx-1" data-toggle="tooltip" data-placement="bottom" title="Remover"><i class="fas fa-trash"></i></a>
+                            <?php
+                            }
+                            ?>
+                        </td>
+                    </tr>
+            <?php
+                endforeach;
+            }
+            ?>
+        </tbody>
+    </table>
+</div>
+<?php
+if ($this->params->chamadosCount == 0) {
+    echo '<h4 class="text-center my-4">Nenhum registro encontrado!</h4>';
+}
+?>
+<div class="my-2 d-flex justify-content-center">
+    <nav aria-label="...">
+        <ul class="pagination">
+            <li class="page-item  disabled">
+                <a class="page-link text-dark" href="#" tabindex="-1">Página <?= $this->params->pageAtual ?> de <?= $this->params->num_paginas ?></a>
+            </li>
+            <?php if ($this->params->pageAtual >= 2) { ?>
+                <li class="page-item">
+                    <a class="page-link text-dark" href="/chamados?page=<?= $this->params->pageAtual - 1; ?>">
+                        <i class="fas fa-chevron-left"></i></a>
+                </li>
+                <?php
+            }
+            for ($i = 1; $i <= 5; $i++) {
+                $estilo = "";
+                if ($this->params->pageAtual == $this->params->rowsPagina) {
+                    $estilo = "active";
+                }
+                if ($this->params->rowsPagina < $this->params->num_paginas + 1) {
+                ?>
+                    <li class="page-item <?= $estilo ?>">
+                        <a class="page-link text-dark " href="/chamados?page=<?= $this->params->rowsPagina; ?>">
+                            <?= $this->params->rowsPagina++ ?>
+                        </a>
+                    </li>
+                <?php
+                }
+            }
+            if (($this->params->pageAtual) < $this->params->num_paginas) { ?>
+                <li class="page-item">
+                    <a class="page-link text-dark" href="/chamados?page=<?= $this->params->pageAtual + 1; ?>"><i class="fas fa-chevron-right"></i></a>
+                </li>
+            <?php } ?>
+        </ul>
+    </nav>
+</div>

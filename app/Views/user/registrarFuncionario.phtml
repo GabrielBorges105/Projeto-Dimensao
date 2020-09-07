@@ -1,0 +1,42 @@
+<h5>Registrar Funcionário</h5>
+<div class="card shadow rounded bg-card  p-3 py-5 mb-4">
+    <div class="d-flex justify-content-center align-items-center">
+        <div class="mx-2 rounded-circle border border-theme border-2x userNav  p-5">
+            <i class="fas fa-user fa-4x"></i>
+        </div>
+    </div>
+    <h4 class="text-center mt-2  mb-4">Dados do Funcionário</h4>
+    <form action="/funcionarios/store" autocomplete="off" style="margin: auto; width: 90%" method="post">
+        <div class="form-group w-100 mb-2">
+            <label for="nome">Nome <strong class="text-danger">*</strong></label>
+            <input type="text" class="form-control  input-theme" name="nome" required id="nome" value="<?= (isset($this->params->inputs['nome'])) ? $this->params->inputs['nome'] : "" ?>" placeholder="">
+        </div>
+        <div class="form-group w-100 mb-2">
+            <label for="funcao">Função <strong class="text-danger">*</strong></label>
+            <input type="text" class="form-control  input-theme" name="funcao" value="<?= (isset($this->params->inputs['funcao'])) ? $this->params->inputs['funcao'] : ""; ?>" required id="funcao" placeholder="">
+        </div>
+        <div class="form-group w-100 mb-2">
+            <label for="equipe">Equipe <strong class="text-danger">*</strong></label>
+            <select name="equipe" id="equipe" class="form-control input-theme">
+                <?php
+                foreach ($this->params->equipes as $equipe) {
+                ?>
+                    <option <?php if(isset($this->params->inputs['equipe']) && $this->params->inputs['equipe']==$equipe->id){ echo "selected";} ?> value="<?= $equipe->id ?>"><?= $equipe->nome ?></option>
+                <?php
+                }
+                ?>
+            </select>
+        </div>
+        <div class="form-group w-100 mb-2">
+            <label for="email">Email <strong class="text-danger">*</strong></label>
+            <input type="text" class="form-control  input-theme" name="email" required id="email" value="<?= (isset($this->params->inputs['email'])) ? $this->params->inputs['email'] : "" ?>" placeholder="">
+        </div>
+        <div class="form-group w-100 mb-2">
+            <label for="senha">Senha <strong class="text-danger">*</strong></label>
+            <input type="password" class="form-control  input-theme" name="senha" required id="senha" value="<?= (isset($this->params->inputs['senha'])) ? $this->params->inputs['senha'] : "" ?>" placeholder="">
+        </div>
+        <div class="text-right mt-3">
+            <button type="submit" class="mb-2 btn btn-theme">Cadastrar</button>
+        </div>
+    </form>
+</div>

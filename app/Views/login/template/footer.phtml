@@ -1,0 +1,42 @@
+<script src="/public/assets/js/jquery.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://kit.fontawesome.com/5e571f3815.js" crossorigin="anonymous"></script>
+<script src="/public/assets/toast/toast.js"></script>
+<?php
+if (isset($this->params->err)) {
+    foreach ($this->params->err as $errs) :
+?>
+        <script type="text/javascript">
+            $.toast({
+                heading: 'Error',
+                text: '<?= $errs ?>',
+                icon: 'error',
+                loader: true,
+                loaderBg: '#e74c3c'
+            })
+        </script>
+    <?php
+    endforeach;
+}
+
+if (isset($this->params->success)) {
+    foreach ($this->params->success as $successes) :
+
+    ?>
+        <script type="text/javascript">
+            $.toast({
+                heading: 'Success',
+                text: '<?= $successes ?>',
+                icon: 'success',
+                loader: true,
+                loaderBg: '#2ecc71'
+            })
+        </script>
+<?php
+    endforeach;
+}
+?>
+</body>
+
+</html>

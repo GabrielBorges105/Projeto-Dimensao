@@ -1,0 +1,59 @@
+<nav class="navbar navbar-expand-md  navbar-dark bg-nav text-light mb-3">
+    <a href="/" class="py-1 h3 text-light font-weight-bold">Desafio Dimensão</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav d-flex justify-content-end w-100">
+            <?php
+            if ($this->params->user['nv'] == 0) {
+            ?>
+                <li class="nav-item mb-2 d-flex justify-content-center">
+                    <a href="/chamados" class="text-link mx-2 text-light">Meus Chamados <i class="fas fa-bell"></i></a>
+                </li>
+            <?php
+            }
+            ?>
+            <?php
+            if ($this->params->user['nv'] == 1) {
+            ?>
+                <li class="nav-item mb-2 d-flex justify-content-center">
+                    <a href="/chamados" class="text-link mx-2 text-light">Minha Equipe <i class="fas fa-users"></i></a>
+                </li>
+            <?php
+            }
+            ?>
+            <?php
+            if ($this->params->user['nv'] > 0) {
+            ?>
+                <li class="nav-item mb-2 d-flex justify-content-center">
+                    <a href="/chamados/all" class="text-link mx-2 text-light">Todos Chamados <i class="fas fa-bell"></i></a>
+                </li>
+            <?php
+            }
+            if ($this->params->user['nv'] == 2) {
+            ?>
+                <li class="nav-item mb-2 d-flex justify-content-center">
+                    <a href="/equipes" class="text-link mx-2 text-light">Equipes <i class="fas fa-users"></i></a>
+                </li>
+                <li class="nav-item mb-2 d-flex justify-content-center">
+                    <a href="/funcionarios" class="text-link mx-2 text-light">Funcionários <i class="fas fa-user-friends"></i></a>
+                </li>
+                <li class="nav-item mb-2 d-flex justify-content-center">
+                    <a href="/agendamentos" class="text-link mx-2 text-light">Agendamentos <i class="fas fa-calendar-alt"></i></a>
+                </li>
+            <?php
+            }
+            ?>
+            <li class="nav-item dropdown mb-2 d-flex justify-content-center mx-2">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="text-center"><?= $this->params->user['nome'] ?></span> <span class=" rounded-circle border border-theme border-2x userNav"><i class="fas fa-user"></i></span>
+                </a>
+                <div class="dropdown-menu w-100 bg-card" aria-labelledby="navbarDropdownMenuLink">
+                    <a href="/perfil" class="dropdown-item bg-dark">Meu Perfil</a>
+                    <a href="/logout" title="Sair" class="dropdown-item bg-dark text-danger"> Sair <i class="fas fa-sign-out-alt"></i></a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>

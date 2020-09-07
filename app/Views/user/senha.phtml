@@ -1,0 +1,18 @@
+<div class="d-flex justify-content-center mt-5">
+    <div style="width: 400px" class="card shadow rounded bg-card  p-3 py-5">
+        <h4 class="text-center mt-2  mb-4">Alterar Senha</h4>
+        <form action="/perfil/passUpdate" method="post">
+            <div class="form-group mb-0">
+                <label for="senha" class="text-right col-form-label">Nova Senha</label>
+                <input type="password" class="form-control  input-theme" name="senha" required id="senha" value="<?= (isset($this->params->inputs['senha'])) ? $this->params->inputs['senha'] : ""; ?>" placeholder="">
+            </div>
+            <div class="form-group mb-2">
+                <label for="confSenha" class="text-right col-form-label">Repita a Senha</label>
+                <input type="password" class="form-control  input-theme" name="confSenha" required id="confSenha" value="<?= (isset($this->params->inputs['confSenha'])) ? $this->params->inputs['confSenha'] : ""; ?>" placeholder="">
+            </div>
+            <div class="text-center mt-5">
+                <button type="submit" class="btn btn-theme">Alterar</button>
+            </div>
+        </form>
+    </div>
+</div>

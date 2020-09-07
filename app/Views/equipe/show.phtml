@@ -1,0 +1,84 @@
+<h2 class="font-weight-bold text-capitalize"><?= $this->params->equipe->nome ?></h2>
+<div class="row">
+    <?php
+    foreach ($this->params->chamados as $chamado) {
+    ?>
+        <div class="col-md-3 mb-4">
+            <div class="rounded bg-card card">
+                <div class="card-header text-center">
+                    <h4 class="text-capitalize"><?= $chamado->motivo ?>
+                        <?php if ($chamado->status == "Pendente") {
+                            echo "<i class='fas fa-circle text-secondary'></i>";
+                        } elseif ($chamado->status == "Aguardando reparo") {
+                            echo "<i class='fas fa-circle text-primary'></i>";
+                        } elseif ($chamado->status == "Aguardando vistoria") {
+                            echo "<i class='fas fa-circle text-warning'></i>";
+                        } elseif ($chamado->status == "Concluído") {
+                            echo "<i class='fas fa-circle text-success'></i>";
+                        }  ?></h4>
+                </div>
+                <div class="card-body">
+                    <h6><strong>Cliente: </strong> <span><?= $chamado->cliente->nome ?></span></h6>
+                    <h6><strong>Status: </strong>
+                        <?php if ($chamado->status == "Pendente") {
+                            echo "<span class='text-secondary'>$chamado->status</span>";
+                        } elseif ($chamado->status == "Aguardando reparo") {
+                            echo "<span class='text-primary'>$chamado->status</span>";
+                        } elseif ($chamado->status == "Aguardando vistoria") {
+                            echo "<span class='text-warning'>$chamado->status</span>";
+                        } elseif ($chamado->status == "Concluído") {
+                            echo "<span class='text-success'>$chamado->status</span>";
+                        }  ?>
+                    </h6>
+                    <h6><strong>Data Abertura: </strong> <span><?= (date($chamado->created_at) == '') ? "-----" :  date('d/m/Y', strtotime($chamado->created_at)) ?></span></h6>
+                    <h6><strong>Agendado Para: </strong> <span><?= (date($chamado->dataAgendamento) == '') ? "-----" :  date('d/m/Y', strtotime($chamado->dataAgendamento)) ?></span></h6>
+                </div>
+            </div>
+        </div>
+    <?php
+    }
+    ?>
+</div>
+
+
+<?php
+if ($this->params->equipe->chamado->count() == 0) {
+    echo '<h4 class="text-center my-4">Nenhum registro encontrado!</h4>';
+}
+?>
+<div class="my-2 d-flex justify-content-center">
+    <nav aria-label="...">
+        <ul class="pagination">
+            <li class="page-item  disabled">
+                <a class="page-link text-dark" href="#" tabindex="-1">Página <?= $this->params->pageAtual ?> de <?= $this->params->num_paginas ?></a>
+            </li>
+            <?php if ($this->params->pageAtual >= 2) { ?>
+                <li class="page-item">
+                    <a class="page-link text-dark" href="/equipes/<?= $this->params->equipe->id ?>/edit?page=<?= $this->params->pageAtual - 1; ?>">
+                        <i class="fas fa-chevron-left"></i></a>
+                </li>
+                <?php
+            }
+            for ($i = 1; $i <= 5; $i++) {
+                $estilo = "";
+                if ($this->params->pageAtual == $this->params->rowsPagina) {
+                    $estilo = "active";
+                }
+                if ($this->params->rowsPagina < $this->params->num_paginas + 1) {
+                ?>
+                    <li class="page-item <?= $estilo ?>">
+                        <a class="page-link text-dark " href="/equipes/<?= $this->params->equipe->id ?>/edit?page=<?= $this->params->rowsPagina; ?>">
+                            <?= $this->params->rowsPagina++ ?>
+                        </a>
+                    </li>
+                <?php
+                }
+            }
+            if (($this->params->pageAtual) < $this->params->num_paginas) { ?>
+                <li class="page-item">
+                    <a class="page-link text-dark" href="/equipes/<?= $this->params->equipe->id ?>/edit?page=<?= $this->params->pageAtual + 1; ?>"><i class="fas fa-chevron-right"></i></a>
+                </li>
+            <?php } ?>
+        </ul>
+    </nav>
+</div>

@@ -1,0 +1,55 @@
+<h2 class="font-weight-bold">Visualizando Chamado</h2>
+<div class="bg-card my-2">
+    <div class="card-header text-center" style="background: rgba(255,255,255,0.05)">
+        <h5 class="text-capitalize"><?= $this->params->chamado->motivo ?> - <span class="text-warning">#<?= $this->params->chamado->id ?></span></h5>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-3 mb-3">
+                <h6 class="text-primary">Solicitante: </h6>
+                <h6><?= $this->params->chamado->cliente->nome ?> </h6>
+            </div>
+            <div class="col-md-3 mb-3">
+                <h6 class="text-primary">Data de Solicitação: </h6>
+                <h6><?= (date($this->params->chamado->created_at) == '0000-00-00') ? "" :  date('d/m/Y', strtotime($this->params->chamado->created_at)) ?> </h6>
+            </div>
+            <div class="col-md-3 mb-3">
+                <h6 class="text-primary">Status: </h6>
+                <h6>
+                    <?php if ($this->params->chamado->status == "Pendente") {
+                        echo $this->params->chamado->status . " <i class='fas fa-circle text-secondary'></i>";
+                    } elseif ($this->params->chamado->status == "Aguardando reparo") {
+                        echo $this->params->chamado->status . " <i class='fas fa-circle text-primary'></i>";
+                    } elseif ($this->params->chamado->status == "Aguardando vistoria") {
+                        echo $this->params->chamado->status . " <i class='fas fa-circle text-warning'></i>";
+                    } elseif ($this->params->chamado->status == "Concluído") {
+                        echo $this->params->chamado->status . " <i class='fas fa-circle text-success'></i>";
+                    }
+                    ?>
+                </h6>
+            </div>
+            <div class="col-md-3 mb-3">
+                <h6 class="text-primary">Equipe Responsável: </h6>
+                <h6><?= ($this->params->chamado->equipe_id == "") ? "-----" : $this->params->chamado->equipe->nome ?> </h6>
+            </div>
+            <div class="col-md-3 mb-3">
+                <h6 class="text-primary">Data do Reparo: </h6>
+                <h6><?= (date($this->params->chamado->dataAgendamento) == '') ? "-----" :  date('d/m/Y', strtotime($this->params->chamado->dataAgendamento)) ?> </h6>
+            </div>
+            <div class="col-md-12">
+                <h6 class="text-primary">Descrição: </h6>
+                <p class="text-justify"><span class="text-primary"></span> <span><?= $this->params->chamado->descricao ?></span></p>
+            </div>
+        </div>
+        <div class="my-2 text-center">
+            <?php
+            if ($this->params->chamado->status == "Pendente" && $this->params->user['nv']==0) {
+            ?>
+                <a href="/chamados/<?= $this->params->chamado->id ?>/edit" class="btn btn-theme">Editar <i class="fas fa-edit"></i></a>
+                <a href="/chamados/<?= $this->params->chamado->id ?>/delete" class="btn btn-danger text-light">Remover <i class="fas fa-trash"></i></a>
+            <?php
+            }
+            ?>
+        </div>
+    </div>
+</div>

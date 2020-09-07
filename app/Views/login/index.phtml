@@ -1,0 +1,30 @@
+<?php require_once __DIR__ . "/template/header.phtml"; ?>
+<div class="container">
+    <div class="rounded">
+        <div class="row">
+            <div class="col-md-6 d-flex align-items-center justify-content-center">
+                <div class="py-5">
+                    <h1 class="text-light font-weight-bold" style="font-size:50px">Faça Login para Acessar!</h1>
+                </div>
+            </div>
+            <div class="col-md-6 py-4">
+                <div class="m-5">
+                    <form action="/login/auth" id="formBox" method="post">
+                    <h4 class="text-light font-weight-bold mb-4">Acessar Plataforma</h4>
+                        <div class="inputIcon">
+                            <input type="email" name="email" id="email" class="input-login mb-2" value="<?php echo (isset($this->params->inputs['email'])) ? $this->params->inputs['email'] : ""; ?>" placeholder="E-mail" required>
+                            <i class="fas fa-envelope text-muted"></i>
+                        </div>
+                        <div class="inputIcon">
+                            <input type="password" name="senha" id="senha" class="input-login mb-2" placeholder="Senha" required>
+                            <i class="fas fa-lock text-muted"></i>
+                        </div>
+                        <button type="submit" class="input-login w-100 btn-theme px-3 my-3">ENTRAR</button>
+                        <h6 class="text-muted text-center">Não possui uma conta? <a href="/register">REGISTRAR-SE</a></h6>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<?php require_once __DIR__ . "/template/footer.phtml"; ?>

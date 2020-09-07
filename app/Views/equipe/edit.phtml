@@ -1,0 +1,123 @@
+<h2 class="font-weight-bold">Editar equipe</h2>
+<div class="bg-card my-2 px-5 pt-5 rounded">
+    <form action="/equipes/<?= $this->params->equipe->id ?>/update" method="post">
+        <div class="form-group row mb-2">
+            <label for="nome" class="col-sm-1 col-form-label text-positionLabel">nome</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control input-theme" name="nome" value="<?= (isset($this->params->inputs['nome'])) ? $this->params->inputs['nome'] : $this->params->equipe->nome ?>" id="nome" placeholder="Informe o nome da equipe" required>
+            </div>
+        </div>
+        <div class="py-3 text-right">
+            <button type="submit" class="btn btn-theme">Atualizar <i class="fas fa-redo-alt"></i></button>
+        </div>
+    </form>
+</div>
+<div class="row">
+    <div class="col-md-9">
+        <h2 class="font-weight-bold">Membros</h2>
+    </div>
+    <div class="col-md-3">
+        <button class="btn btn-theme w-100" data-toggle="modal" data-target="#modalAddmembro">Adicionar Membro</button>
+        <div class="modal fade" id="modalAddmembro" tabindex="-1" role="dialog" aria-labelledby="modalAddmembroLabel" aria-hidden="true">
+            <div class="modal-dialog shadow modal-lg rounded" role="document">
+                <div class="modal-content modalTheme ">
+                    <form action="/equipes/<?=$this->params->equipe->id?>/addFuncionario" method="post">
+                        <div class="modal-header" style="border:none">
+                            <h5 class="modal-title font-weight-bold" id="modalAddEquipeLabel">Adicionar Membro na Equipe</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span class="text-light" aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-row pb-2">
+                                <label for="funcionario">Funcionário</label>
+                                <select name="funcionario" id="funcionario" class="form-control input-theme">
+                                    <?php
+                                    foreach ($this->params->funcionariosSemEquipe as $funcionario) {
+                                    ?>
+                                        <option value="<?= $funcionario->id ?>"><?= $funcionario->nome ?></option>
+                                    <?php
+                                    }
+                                    ?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="modal-footer" style="border:none">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                            <button type="submit" class="btn btn-theme">Adicionar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div><!-- end modal-->
+    </div>
+</div>
+<div class="table-responsive rounded">
+    <table class="table rounded table-striped borded text-light table-theme">
+        <thead>
+            <tr class="text-center">
+                <th>#</th>
+                <th>Membro</th>
+                <th>Função</th>
+                <th>Ação</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            foreach ($this->params->funcionariosDaEquipe as $funcionario) :
+            ?>
+                <tr class="text-center">
+                    <td><?= $funcionario->id ?></td>
+                    <td><?= $funcionario->nome ?></td>
+                    <td><?= $funcionario->funcao ?></td>
+                    <td class=>
+                        <a href="/equipes/<?= $funcionario->id ?>/removeFuncionario" onclick="return confirm('Você deseja realmente remover este funcionário da equipe?')" class="text-danger" data-toggle="tooltip" data-placement="bottom" title="Remover"><i class="fas fa-trash"></i></a>
+                    </td>
+                </tr>
+            <?php
+            endforeach;
+            ?>
+        </tbody>
+    </table>
+</div>
+<?php
+if ($this->params->membrosCount == 0) {
+    echo '<h4 class="text-center my-4">Nenhum registro encontrado!</h4>';
+}
+?>
+<div class="my-2 d-flex justify-content-center">
+    <nav aria-label="...">
+        <ul class="pagination">
+            <li class="page-item  disabled">
+                <a class="page-link text-dark" href="#" tabindex="-1">Página <?= $this->params->pageAtual ?> de <?= $this->params->num_paginas ?></a>
+            </li>
+            <?php if ($this->params->pageAtual >= 2) { ?>
+                <li class="page-item">
+                    <a class="page-link text-dark" href="/equipes/<?=$this->params->equipe->id?>/edit?page=<?= $this->params->pageAtual - 1; ?>">
+                        <i class="fas fa-chevron-left"></i></a>
+                </li>
+                <?php
+            }
+            for ($i = 1; $i <= 5; $i++) {
+                $estilo = "";
+                if ($this->params->pageAtual == $this->params->rowsPagina) {
+                    $estilo = "active";
+                }
+                if ($this->params->rowsPagina < $this->params->num_paginas + 1) {
+                ?>
+                    <li class="page-item <?= $estilo ?>">
+                        <a class="page-link text-dark " href="/equipes/<?=$this->params->equipe->id?>/edit?page=<?= $this->params->rowsPagina; ?>">
+                            <?= $this->params->rowsPagina++ ?>
+                        </a>
+                    </li>
+                <?php
+                }
+            }
+            if (($this->params->pageAtual) < $this->params->num_paginas) { ?>
+                <li class="page-item">
+                    <a class="page-link text-dark" href="/equipes/<?=$this->params->equipe->id?>/edit?page=<?= $this->params->pageAtual + 1; ?>"><i class="fas fa-chevron-right"></i></a>
+                </li>
+            <?php } ?>
+        </ul>
+    </nav>
+</div>

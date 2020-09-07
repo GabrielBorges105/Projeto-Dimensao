@@ -1,0 +1,18 @@
+<h2 class="font-weight-bold">Adicionar Chamado</h2>
+<form action="/chamados/store" class="my-2 bg-card  rounded p-5" method="post">
+    <div class="form-group row mb-2">
+        <label for="motivo" class="col-sm-1 col-form-label text-positionLabel">Motivo</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control input-theme" name="motivo"  value="<?=(isset($this->params->inputs['motivo']))?$this->params->inputs['motivo']:""?>" id="motivo" placeholder="Informe o motivo" required>
+        </div>
+    </div>
+    <div class="form-group row mb-2">
+        <label for="descricao" class="col-sm-1 col-form-label text-positionLabel">Descrição</label>
+        <div class="col-sm-10">
+            <textarea name="descricao" placeholder="Descreva aqui o motivo do seu chamado..." class="form-control input-theme" id="descricao" cols="30" required rows="10"><?=(isset($this->params->inputs['descricao']))?$this->params->inputs['descricao']:""?></textarea>
+        </div>
+    </div>
+    <div class="mt-4 text-right">
+        <button type="submit" class="btn btn-theme">Registrar <i class="fas fa-check ml-2"></i></button>
+    </div>
+</form>

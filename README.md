@@ -167,7 +167,7 @@ Feito com ❤️ por Jean Gabriel 👋🏽 Entre em contato!
 
 -------------------------------------------------
 
-<a id="lincenca"></a>
+<a id="licenca"></a>
 ## Licença
 
 [MIT](https://choosealicense.com/licenses/mit/)

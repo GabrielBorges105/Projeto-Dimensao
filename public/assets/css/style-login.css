@@ -1,0 +1,62 @@
+@import "theme.css";
+body {
+    /* background: rgb(231,76,60); */
+    background:rgb(18, 18, 20);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-theme2{
+    background: rgb(18, 18, 20);
+    color: #ccc;
+}
+.btn-theme2:hover{
+    color: white;
+}
+
+#formBox { 
+    padding: 60px;
+    border-radius:10px;
+    background: rgb(32, 32, 36);
+}
+
+* {
+    outline: none!important;
+}
+
+.input-login {
+    border-radius: 7px;
+    border: none;
+    padding: 10px 20px;
+    width: 100%;
+    color: white;
+}
+
+input.input-login {
+    background: rgb(18, 18, 20)!important;
+
+}
+
+input.input-login:focus {
+    box-sizing: padding-box;
+    box-shadow: inset 0px 0px 1px 3px #3498db!important;
+    border:none;
+}
+
+.bg-muted {
+    background: rgb(238, 237, 237);
+}
+
+.inputIcon {
+    position: relative;
+}
+.inputIcon input {
+    padding-left: 40px;
+}
+.inputIcon i {
+    position: absolute;
+    left: 0px;
+    padding: 13px 15px;
+}

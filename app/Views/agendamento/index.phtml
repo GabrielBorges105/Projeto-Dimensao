@@ -1,0 +1,164 @@
+<div class="row align-items-center mb-2">
+    <div class="col-md-8 mb-2">
+        <h2 class="font-weight-bold">Agendamento de Chamados</h2>
+    </div>
+    <div class="col-md-2 mb-2 text-right">
+        <a href="/agendamentos/vistoria/create" class="w-100 btn btn-warning text-dark">Agendar Vistoria</a>
+    </div>
+    <div class="col-md-2 mb-2 text-right">
+        <a href="/agendamentos/reparo/create" class="w-100 btn btn-theme">Agendar Reparo</a>
+    </div>
+</div>
+<form class=" form-row bg-card m-1 align-items-end mb-3" action="" method="get">
+    <div class="col-md-10 p-3">
+        <div class="form-row">
+            <label class="d-block" for="">Buscar por Chamado</label>
+            <input type="hidden" name="page" value="1">
+            <input type="number" name="buscar" id="buscar" placeholder="Informe o Código do Chamado" value="<?= $this->params->buscar ?>" class="form-control input-theme">
+        </div>
+    </div>
+    <div class="col-md-2 p-3">
+        <button type="submit" class="btn btn-theme w-100">Filtrar</button>
+    </div>
+</form>
+<div class="table-responsive rounded">
+    <table class="table rounded table-striped borded table-theme">
+        <thead>
+            <tr class="text-center">
+                <th>Cód. Chamado</th>
+                <th>Cliente</th>
+                <th class="text-danger">Chamado</th>
+                <th>Data de Abertura</th>
+                <th class="text-primary">Equipe Responsável</th>
+                <th class="text-warning">Agendado para</th>
+                <th>Status</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            foreach ($this->params->chamados->where('status', '!=', 'Pendente') as $chamado) {
+            ?>
+                <tr class="border-0 text-center" style="border:none!important;">
+                    <td><?= $chamado->id ?></td>
+                    <td><?= $chamado->cliente->nome ?></td>
+                    <td class="text-danger"><?= $chamado->motivo ?></td>
+                    <td><?= date('d/m/Y', strtotime($chamado->created_at)) ?></td>
+                    <td class="text-primary"><?= @$chamado->equipe->nome ?></td>
+                    <td class="text-warning"><?= date('d/m/Y', strtotime($chamado->dataAgendamento)) ?></td>
+                    <td><?php if ($chamado->status == "Pendente") {
+                            echo $chamado->status . " <i class='fas fa-circle text-secondary'></i>";
+                        } elseif ($chamado->status == "Aguardando reparo") {
+                            echo $chamado->status . " <i class='fas fa-circle text-primary'></i>";
+                        } elseif ($chamado->status == "Aguardando vistoria") {
+                            echo $chamado->status . " <i class='fas fa-circle text-warning'></i>";
+                        } elseif ($chamado->status == "Concluído") {
+                            echo $chamado->status . " <i class='fas fa-circle text-success'></i>";
+                        }  ?></td>
+                    <td>
+                        <a href="/chamados/<?= $chamado->id ?>/show" class="text-secondary mx-1" data-toggle="tooltip" data-placement="bottom" title="Visualizar"><i class="fas fa-eye"></i></a>
+                        <?php
+                        if ($chamado->status != "Concluído") {
+                            if ($chamado->status == "Aguardando reparo") {
+                        ?>
+                                <a href="/chamados/<?= $chamado->id ?>/checked" onclick="return confirm('Marcar chamado como concluído?')" class="text-success mx-1" data-toggle="tooltip" data-placement="bottom" title="Finalizar Chamado"><i class="fas fa-check"></i></a>
+                            <?php
+                            }
+                            ?>
+
+                            <a style="cursor:pointer" data-toggle="modal" class="m-1" data-target="#modalEditAgendamento<?= $chamado->id ?>"><i data-toggle="tooltip" data-placement="bottom" title="Editar" class="fas fa-edit"></i></a>
+                            <div class="modal fade" id="modalEditAgendamento<?= $chamado->id ?>" tabindex="-1" role="dialog" aria-labelledby="modalEditAgendamentoLabel" aria-hidden="true">
+                                <div class="modal-dialog shadow modal-lg rounded" role="document">
+                                    <div class="modal-content modalTheme ">
+                                        <form action="/agendamentos/<?= $chamado->id ?>/update" method="post">
+                                            <div class="modal-header" style="border:none">
+                                                <h5 class="modal-title font-weight-bold" id="modalEditAgendamentoLabel">Editar Agendamento</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span class="text-light" aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="form-group row mb-2">
+                                                    <label for="equipe" class="col-sm-1 col-form-label text-positionLabel">Equipe</label>
+                                                    <div class="col-sm-10">
+                                                        <select name="equipe" id="equipe" class="form-control input-theme">
+                                                            <?php
+                                                            foreach ($this->params->equipes as $equipe) {
+                                                            ?>
+                                                                <option <?php if ($equipe->id == $chamado->equipe_id) {
+                                                                            echo "selected";
+                                                                        } ?> value="<?= $equipe->id ?>"><?= $equipe->nome ?></option>
+                                                            <?php
+                                                            }
+                                                            ?>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row mb-2">
+                                                    <label for="data" class="col-sm-1 col-form-label text-positionLabel">Data</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="date" class="form-control input-theme" min="<?= date('Y-m-d') ?>" name="data" value="<?= $chamado->dataAgendamento ?>" id="data" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer" style="border:none">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                                <button type="submit" class="btn btn-theme">Atualizar <i class="fas fa-redo-alt"></i></button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div><!-- end modal-->
+                            <a href="/agendamentos/<?= $chamado->id ?>/delete" onclick="return confirm('Tem certeza que deseja remover este agendamento?')" class="text-danger mx-1" data-toggle="tooltip" data-placement="bottom" title="Finalizar Chamado"><i class="fas fa-trash"></i></a>
+                        <?php
+                        }
+                        ?>
+                    </td>
+                </tr>
+            <?php
+            }
+            ?>
+        </tbody>
+    </table>
+</div>
+<?php
+if ($this->params->chamados->where('status', '!=', 'Pendente')->count() == 0) {
+    echo '<h4 class="text-center my-4">Nenhum registro encontrado!</h4>';
+}
+?>
+<div class="my-2 d-flex justify-content-center">
+    <nav aria-label="...">
+        <ul class="pagination">
+            <li class="page-item  disabled">
+                <a class="page-link text-dark" href="#" tabindex="-1">Página <?= $this->params->pageAtual ?> de <?= $this->params->num_paginas ?></a>
+            </li>
+            <?php if ($this->params->pageAtual >= 2) { ?>
+                <li class="page-item">
+                    <a class="page-link text-dark" href="/agendamentos?page=<?= $this->params->pageAtual - 1; ?>&buscar=<?= isset($this->params->buscar) ? ($this->params->buscar) :  "" ?>">
+                        <i class="fas fa-chevron-left"></i></a>
+                </li>
+                <?php
+            }
+            for ($i = 1; $i <= 5; $i++) {
+                $estilo = "";
+                if ($this->params->pageAtual == $this->params->rowsPagina) {
+                    $estilo = "active";
+                }
+                if ($this->params->rowsPagina < $this->params->num_paginas + 1) {
+                ?>
+                    <li class="page-item <?= $estilo ?>">
+                        <a class="page-link text-dark " href="/agendamentos?page=<?= $this->params->rowsPagina; ?>&buscar=<?= isset($this->params->buscar) ? ($this->params->buscar) :  "" ?>">
+                            <?= $this->params->rowsPagina++ ?>
+                        </a>
+                    </li>
+                <?php
+                }
+            }
+            if (($this->params->pageAtual) < $this->params->num_paginas) { ?>
+                <li class="page-item">
+                    <a class="page-link text-dark" href="/agendamentos?page=<?= $this->params->pageAtual + 1; ?>&buscar=<?= isset($this->params->buscar) ? ($this->params->buscar) :  "" ?>"><i class="fas fa-chevron-right"></i></a>
+                </li>
+            <?php } ?>
+        </ul>
+    </nav>
+</div>
