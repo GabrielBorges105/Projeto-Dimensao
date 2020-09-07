@@ -1,6 +1,5 @@
 # PROJETO DESAFIO - GRUPO DIMENSÃO
 
--------------------------------------------------
 <a id="sobre"></a>
 ## Sobre
 
