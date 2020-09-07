@@ -120,7 +120,7 @@ Feito isso?!
 
 
 
-<strong>OBS.:</strong> Os agendamentos de vistoria devem ser feito sempre antes do agendamento de reparo, sendo possivel agendar reparo somente quando o agendamento da vistoria já foi feito. Outro detalhe importante é que depois de agendado o reparo ficará disponível na tela de agendamentos uma nova opção para marcar agendamento como concluído/finalizado.
+<strong>OBS.:</strong> Os agendamentos de vistoria devem ser feito sempre antes do agendamento de reparo, sendo possÍvel agendar reparo somente quando o agendamento da vistoria já estiver feito. Outro detalhe importante é que depois de agendado o reparo ficará disponível na tela de agendamentos uma nova opção para marcar agendamento como concluído/finalizado.
 
 -------------------------------------------------
 
