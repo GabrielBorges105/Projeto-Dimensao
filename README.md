@@ -55,7 +55,7 @@ Antes de começar, você vai precisar ter instalado em sua máquina as seguintes
 
 * Faça Download do Projeto ou clone usando comando
     ```bash
-    git clone <https://github.com/gabrielbigs/projeto_dimensao>
+    git clone <https://github.com/GabrielBorges105/Projeto-Dimensao>
     ```
 * Importe o banco de dados para o Mysql, você poderá encontrar o arquivo .sql no seguinte caminho:
     ```bash
