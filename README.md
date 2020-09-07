@@ -133,7 +133,7 @@ As seguintes ferramentas foram utilizadas na construção do projeto
 -------------------------------------------------
 
 <a id="autor"></a>
-## ♡ Autor
+## Autor
 
 <a href="http://www.jeangabrieldeveloper.com">
  <img style="border-radius: 50%;" src="http://www.jeangabrieldeveloper.com/img/perfil2.png" width="100px;" alt=""/>
