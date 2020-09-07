@@ -17,6 +17,7 @@ Projeto desenvolvido durante o processo seletivo do Grupo Dimensão, cujo objeti
 
 Tabela de conteúdos
 =================
+   * [Modelagem do Banco de Dados](https://github.com/GabrielBorges105/Projeto-Dimensao/blob/master/Modelagem%20Banco%20de%20Dados.png)
    * [Sobre](#sobre)
    * [Requisitos](#requisitos)
    * [Instalação](#instalacao)
@@ -59,7 +60,7 @@ Antes de começar, você vai precisar ter instalado em sua máquina as seguintes
 * Importe o banco de dados para o Mysql, você poderá encontrar o arquivo .sql no seguinte caminho:
     ```bash
     -- storage
-        |-- db_dimensao.sql 
+        |-- db_dimensao.sql
     ```
     
 
@@ -125,7 +126,7 @@ Feito isso?!
 
 As seguintes ferramentas foram utilizadas na construção do projeto
 
-- [PHP com CC Framework 1.0](https://github.com/GabrielBorges105/CC-Framework.git)
+- [CC Framework 1.0](https://github.com/GabrielBorges105/CC-Framework)
 - [Boostrap v4.5.2](https://getbootstrap.com/)
 - [Composer v1.10.10](https://getcomposer.org/)
 - [jQuery v3.5.1](https://jquery.com/)
