@@ -60,7 +60,7 @@ Antes de começar, você vai precisar ter instalado em sua máquina as seguintes
 * Importe o banco de dados para o Mysql, você poderá encontrar o arquivo .sql no seguinte caminho:
     ```bash
     -- storage
-        |-- db_dimensao.php
+        |-- db_dimensao.sql
     ```
     
 
@@ -92,13 +92,6 @@ Feito isso?!
     - [x] Abrir Chamado
     - [x] Visualizar seus Chamados
     - [x] Editar e Remover Chamados <strong>antes de serem respondidos</strong>.
-    - [] Visualizar Todos Chamados
-    - [] Minha Equipe e chamados sendo atendidos por ela.
-    - [] Todas Equipes.
-    - [] Cadastrar, Editar e Remover equipes, somente será permitida a remoção de uma equipe caso ela ainda não tenha atendido a nenhum chamado.
-    - [] Lista de Funcionários.
-    - [] Adicionar e Remover Funcionários em equipes.
-    - [] Atribuir permissões a outros Funcionários.
 
 <a id="como-usar-comum"></a>
 ### Funcionário Comum
@@ -106,16 +99,8 @@ Feito isso?!
 - Diferentemente da conta do cliente, o funcionário somente poderá ser registrado no sistema pelo administrador.
 - Depois de receber suas credenciais de acesso feitas pelo administrador, você poderá utilizar a rota "/" para ter acesso ao sistema.
 - Após fazer login no sistema serão apresentadas as seguintes funcionalidades:
-    - [] Abrir Chamado
-    - [] Visualizar seus Chamados
-    - [] Editar e Remover Chamados <strong>antes de serem respondidos</strong>.
     - [x] Visualizar Todos Chamados
     - [x] Minha Equipe e chamados sendo atendidos por ela.
-    - [] Todas Equipes.
-    - [] Cadastrar, Editar e Remover equipes, somente será permitida a remoção de uma equipe caso ela ainda não tenha atendido a nenhum chamado.
-    - [] Lista de Funcionários.
-    - [] Adicionar e Remover Funcionários em equipes.
-    - [] Atribuir permissões a outros Funcionários.
 
 <a id="como-usar-administrador"></a>
 ### Funcionário Administrador
@@ -124,9 +109,6 @@ Feito isso?!
     - Email: admin@admin.com
     - Senha: admin123
 - Após fazer login no sistema serão apresentadas as seguintes funcionalidades:
-    - [] Abrir Chamado
-    - [] Visualizar seus Chamados
-    - [] Editar e Remover Chamados <strong>antes de serem respondidos</strong>.
     - [x] Visualizar Todos Chamados
     - [x] Minha Equipe e chamados sendo atendidos por ela.
     - [x] Todas Equipes.
@@ -152,7 +134,7 @@ As seguintes ferramentas foram utilizadas na construção do projeto
 -------------------------------------------------
 
 <a id="autor"></a>
-## ♡ Autor
+## Autor
 
 <a href="http://www.jeangabrieldeveloper.com">
  <img style="border-radius: 50%;" src="http://www.jeangabrieldeveloper.com/img/perfil2.png" width="100px;" alt=""/>
