@@ -107,7 +107,7 @@ Feito isso?!
 
 - Por padrão já disponibilizei uma conta com o nível Administrador, para acessá-la utilize as seguintes informações:
     - Email: admin@admin.com
-    - Senha: admin123
+    - Senha: 12345678
 - Após fazer login no sistema serão apresentadas as seguintes funcionalidades:
     - [x] Visualizar Todos Chamados
     - [x] Minha Equipe e chamados sendo atendidos por ela.

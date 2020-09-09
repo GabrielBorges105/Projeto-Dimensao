@@ -29,7 +29,7 @@
                         <td class="text-lowercase"><?= $chamado->motivo ?></td>
                         <td><?= mb_strimwidth($chamado->descricao, 0, 50, "..."); ?></td>
                         <td class="text-primary"><?= date('d/m/Y', strtotime($chamado->created_at)) ?></td>
-                        <td class="text-warning"><?= (date($chamado->dataAgendamento) == '0000-00-00') ? "" :  date('d/m/Y', strtotime($chamado->dataAgendamento)) ?></td>
+                        <td class="text-warning"><?= (date($chamado->dataAgendamento) == null) ? "-----" :  date('d/m/Y', strtotime($chamado->dataAgendamento)) ?></td>
                         <td><?php if ($chamado->status == "Pendente") {
                                 echo $chamado->status . " <i class='fas fa-circle text-secondary'></i>";
                             }  elseif ($chamado->status == "Aguardando reparo") {

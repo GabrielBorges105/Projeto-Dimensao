@@ -322,6 +322,7 @@ class User extends BaseController
         unset($data['equipe']);
         $data['equipe_id'] = $request->post->equipe;
         $data['nv_acesso'] = 1;
+        $data['senha'] = password_hash($data['senha'], PASSWORD_BCRYPT);
         try {
             $resultCliente = Cliente::where('email', $request->post->email)->first();
             $resultFuncionario = Funcionario::where('email', $request->post->email)->first();
@@ -362,7 +363,7 @@ class User extends BaseController
         try {
             $resultFuncionario = Funcionario::find($id);
             if ($resultFuncionario) {
-                $resultFuncionario->nv_acesso = ($resultFuncionario->nv_acesso==1)?"2":"1";
+                $resultFuncionario->nv_acesso = ($resultFuncionario->nv_acesso == 1) ? "2" : "1";
                 $resultFuncionario->save();
                 Redirect::route('/funcionarios', [
                     "success" => ["Permissão do funcionário altarada com sucesso"]
